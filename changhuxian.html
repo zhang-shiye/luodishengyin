@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>长护险B端专项服务体系 — 落地生银</title>
+<meta name="description" content="落地生银社群推出长护险B端专项服务体系，覆盖准入资质代办、持证人才供给、本地精准获客三大模块，由启航圈成员组队服务长护险实体机构，轻资产切入银发商业链路。">
+<style>
+/* ===== RESET & VARS ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FEFCF8;--white:#FFF;--text:#1C1917;--muted:#6B7280;--faint:#9CA3AF;
+  --teal:#0F766E;--teal-light:#0D9488;--teal-pale:rgba(15,118,110,.06);
+  --amber:#B45309;--amber-light:#D97706;--amber-pale:rgba(180,83,9,.06);
+  --border:#E5E0DB;--shadow:0 2px 16px rgba(0,0,0,.05);
+}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+
+/* ===== NAV ===== */
+.nav{
+  position:sticky;top:0;z-index:100;background:rgba(254,252,248,.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{max-width:1100px;margin:0 auto;padding:.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:1.15rem;font-weight:900;color:var(--teal);letter-spacing:-.01em}
+.nav-links{display:flex;align-items:center;gap:1.75rem}
+.nav-links a{font-size:.875rem;font-weight:600;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-back{
+  display:inline-flex;align-items:center;gap:.35rem;font-size:.85rem;font-weight:700;color:var(--teal);
+  padding:.45rem 1rem;border-radius:8px;border:1px solid rgba(15,118,110,.18);transition:all .25s;
+}
+.nav-back:hover{background:var(--teal-pale)}
+
+/* ===== HERO ===== */
+.hero{
+  padding:5rem 1.5rem 4rem;text-align:center;
+  background:linear-gradient(180deg,var(--white) 0%,var(--teal-pale) 100%);
+}
+.hero-badge{
+  display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.06em;
+  padding:.3rem .9rem;border-radius:50px;
+  background:linear-gradient(135deg,rgba(15,118,110,.12),rgba(13,148,136,.08));
+  color:var(--teal);margin-bottom:1.5rem;
+}
+.hero-h1{
+  font-size:2.65rem;font-weight:900;letter-spacing:-.02em;line-height:1.25;color:var(--text);
+  max-width:720px;margin:0 auto 1rem;
+}
+.hero-h1 em{font-style:normal;color:var(--teal);position:relative}
+.hero-h1 em::after{
+  content:'';position:absolute;left:0;bottom:1px;width:100%;height:6px;
+  background:rgba(15,118,110,.16);border-radius:2px;z-index:-1;
+}
+.hero-sub{font-size:1.08rem;color:var(--muted);max-width:600px;margin:0 auto 2rem;line-height:1.65}
+.hero-keywords{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+
+/* ===== PAIN POINTS ===== */
+.pain{max-width:1100px;margin:0 auto;padding:5rem 1.5rem}
+.pain-label{
+  display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.06em;
+  padding:.28rem .8rem;border-radius:50px;background:rgba(180,83,9,.08);color:var(--amber);margin-bottom:1.5rem;
+}
+.pain-h2{font-size:2rem;font-weight:900;letter-spacing:-.01em;margin-bottom:.75rem}
+.pain-sub{font-size:1rem;color:var(--muted);margin-bottom:3rem;max-width:650px}
+.pain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.pain-card{
+  background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.75rem 1.5rem;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.pain-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--amber),var(--amber-light));
+}
+.pain-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.07)}
+.pain-icon{font-size:1.4rem;margin-bottom:.85rem}
+.pain-card h3{font-size:1.05rem;font-weight:800;margin-bottom:.5rem;line-height:1.35}
+.pain-card p{font-size:.85rem;color:var(--muted);line-height:1.6}
+
+/* ===== ARROW BRIDGE ===== */
+.bridge{
+  text-align:center;padding:0 1.5rem 2rem;max-width:1100px;margin:0 auto;
+}
+.bridge-inner{
+  display:inline-flex;flex-direction:column;align-items:center;gap:.4rem;
+  padding:1.5rem 3rem;background:var(--white);border:1px dashed var(--border);border-radius:16px;
+}
+.bridge-label{font-size:.82rem;font-weight:800;color:var(--teal);letter-spacing:.04em}
+.bridge-arrow{font-size:1.5rem;color:var(--teal);animation:bounce-down 1.8s ease-in-out infinite}
+@keyframes bounce-down{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.bridge-text{font-size:.92rem;color:var(--muted);font-weight:600}
+
+/* ===== MODULES ===== */
+.modules{max-width:1100px;margin:0 auto;padding:0 1.5rem 5rem}
+.modules-h2{font-size:2rem;font-weight:900;letter-spacing:-.01em;margin-bottom:.75rem;text-align:center}
+.modules-sub{font-size:1rem;color:var(--muted);text-align:center;margin-bottom:3rem}
+
+.module-block{
+  background:var(--white);border:1px solid var(--border);border-radius:18px;
+  margin-bottom:2rem;overflow:hidden;box-shadow:var(--shadow);
+}
+.module-header{
+  padding:2rem 2.25rem 1.5rem;display:flex;align-items:flex-start;gap:1.25rem;
+  border-bottom:1px solid var(--border);
+}
+.module-num{
+  width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  font-size:1.35rem;font-weight:900;color:#FFF;flex-shrink:0;
+  background:linear-gradient(135deg,var(--teal),var(--teal-light));
+}
+.module-num.m2{background:linear-gradient(135deg,#0E7490,#0891B2)}
+.module-num.m3{background:linear-gradient(135deg,var(--amber),var(--amber-light))}
+.module-hd-text{flex:1}
+.module-hd-text .mod-label{font-size:.7rem;font-weight:800;letter-spacing:.06em;color:var(--teal);margin-bottom:.25rem}
+.module-hd-text h3{font-size:1.3rem;font-weight:900;line-height:1.35;margin-bottom:.35rem}
+.module-hd-text .mod-subtitle{font-size:.88rem;color:var(--muted);line-height:1.55}
+.module-body{padding:1.75rem 2.25rem}
+.module-body-list{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.service-item{
+  background:var(--teal-pale);border-radius:12px;padding:1.25rem 1.35rem;
+  border:1px solid rgba(15,118,110,.08);
+}
+.service-item h4{font-size:.92rem;font-weight:800;margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem}
+.service-item h4 .si-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.service-item p{font-size:.835rem;color:var(--muted);line-height:1.6}
+
+/* ===== VALUE SUMMARY ===== */
+.value{max-width:1100px;margin:0 auto;padding:2rem 1.5rem 5rem}
+.value-h2{font-size:2rem;font-weight:900;letter-spacing:-.01em;text-align:center;margin-bottom:2.5rem}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.value-card{
+  background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.75rem;text-align:center;
+  transition:all .3s;
+}
+.value-card:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.06)}
+.value-icon{font-size:1.8rem;margin-bottom:.75rem}
+.value-card h3{font-size:1.05rem;font-weight:800;margin-bottom:.5rem}
+.value-card p{font-size:.85rem;color:var(--muted);line-height:1.6}
+
+/* ===== FLOW ===== */
+.flow{max-width:900px;margin:0 auto;padding:0 1.5rem 5rem}
+.flow-h2{font-size:1.5rem;font-weight:900;text-align:center;margin-bottom:2rem;letter-spacing:-.01em}
+.flow-steps{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap}
+.flow-step{text-align:center;flex:1;min-width:120px}
+.flow-step-num{
+  width:44px;height:44px;border-radius:50%;margin:0 auto .55rem;
+  display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;color:#FFF;
+  background:linear-gradient(135deg,var(--teal),var(--teal-light));
+}
+.flow-step h4{font-size:.88rem;font-weight:800;margin-bottom:.2rem}
+.flow-step p{font-size:.75rem;color:var(--muted);line-height:1.45}
+.flow-arrow{font-size:1.2rem;color:var(--border);margin:0 .5rem;flex-shrink:0}
+
+/* ===== CTA ===== */
+.cta{
+  max-width:1100px;margin:0 auto;padding:0 1.5rem 5rem;text-align:center;
+}
+.cta-inner{
+  background:linear-gradient(135deg,var(--teal),var(--teal-light));border-radius:20px;
+  padding:3rem 2rem;color:#FFF;
+}
+.cta-h2{font-size:1.75rem;font-weight:900;margin-bottom:.75rem;letter-spacing:-.01em}
+.cta-sub{font-size:1rem;opacity:.9;margin-bottom:2rem;line-height:1.6;max-width:560px;margin-left:auto;margin-right:auto}
+.cta-note{display:inline-block;font-size:.78rem;font-weight:700;padding:.35rem 1rem;border-radius:50px;background:rgba(255,255,255,.18);margin-bottom:1.5rem}
+.btn-cta{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.95rem 2.4rem;border-radius:12px;font-size:1.05rem;font-weight:800;
+  background:#FFF;color:var(--teal);
+  box-shadow:0 4px 20px rgba(0,0,0,.18);transition:all .3s;
+}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.24)}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--white);border-top:1px solid var(--border);padding:2.5rem 1.5rem;text-align:center}
+.footer p{font-size:.82rem;color:var(--faint)}
+.footer a{color:var(--teal);font-weight:700}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:960px){
+  .pain-grid{grid-template-columns:1fr 1fr}
+  .module-body-list{grid-template-columns:1fr}
+  .value-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .hero{padding:4rem 1.25rem 3rem}
+  .hero-h1{font-size:1.85rem}
+  .hero-sub{font-size:.92rem}
+  .pain-h2,.modules-h2,.value-h2{font-size:1.45rem}
+  .pain-grid{grid-template-columns:1fr}
+  .value-grid{grid-template-columns:1fr}
+  .module-header{flex-direction:column;align-items:flex-start;padding:1.5rem 1.25rem 1.25rem}
+  .module-body{padding:1.25rem}
+  .flow-steps{flex-direction:column;gap:1.25rem}
+  .flow-arrow{transform:rotate(90deg);margin:.25rem 0}
+  .bridge-inner{padding:1.25rem 2rem}
+  .cta-inner{padding:2.25rem 1.25rem}
+  .nav-links{gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">落地生银</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-back">← 返回官网</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-badge">启航圈成员专项服务体系</div>
+  <h1 class="hero-h1">长护险<em>B端</em>专项服务体系</h1>
+  <p class="hero-sub">长护险市场风已起，但实体养老机构正深陷四大困局。<br>本体系由启航圈成员组队，为机构提供从准入到获客的全链路外包服务。</p>
+</section>
+
+<!-- ===== PAIN POINTS ===== -->
+<section class="pain">
+  <div class="pain-label">长护险实体机构 · 四大核心痛点</div>
+  <h2 class="pain-h2">机构老板睡不着的问题，我们来解决</h2>
+  <p class="pain-sub">当前长护险（长期护理保险）市场中，实体养老机构面临的业务难题远比表面看到的更复杂。</p>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="pain-icon">📋</div>
+      <h3>准入标准高</h3>
+      <p>各地医保局长护险定点资格审核严格，申报材料专业性强、流程复杂，大量中小机构因不熟悉规则被挡在门外。</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">👥</div>
+      <h3>人员流失率大</h3>
+      <p>持证护理员供不应求，招聘难、留人更难。一线人员流动频繁，直接影响服务质量评分与续约资质。</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">🎯</div>
+      <h3>前端客源不足</h3>
+      <p>自主获客能力弱，依赖政府派单或被动等客上门。床位闲置率高，大量符合标准的老年客户未被有效触达。</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">💰</div>
+      <h3>基础服务利润率低</h3>
+      <p>长护险基础服务项目收费受限，仅靠政府结算难以覆盖运营成本，缺乏高利润自费项目的转化能力。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BRIDGE ===== -->
+<div class="bridge">
+  <div class="bridge-inner">
+    <span class="bridge-label">落地生银的解法</span>
+    <span class="bridge-arrow">↓</span>
+    <span class="bridge-text">三大核心业务模块，贯穿长护险机构全生命周期</span>
+  </div>
+</div>
+
+<!-- ===== MODULE 1 ===== -->
+<section class="modules">
+  <div class="module-block">
+    <div class="module-header">
+      <div class="module-num">01</div>
+      <div class="module-hd-text">
+        <div class="mod-label">前期合规</div>
+        <h3>准入资质代办与系统接入服务</h3>
+        <div class="mod-subtitle">专门为计划申请长护险定点资格的机构提供一站式前期合规服务，让机构快速通过审核、尽早入场。</div>
+      </div>
+    </div>
+    <div class="module-body">
+      <div class="module-body-list">
+        <div class="service-item">
+          <h4><span class="si-dot"></span>申报材料撰写与整理</h4>
+          <p>按照当地医保局标准，为机构撰写与整理全套申报材料，确保格式规范、内容完备，大幅提高审核通过率。</p>
+        </div>
+        <div class="service-item">
+          <h4><span class="si-dot"></span>SaaS信息化系统对接</h4>
+          <p>对接并提供政府遴选阶段必须具备的SaaS信息化管理系统，满足医保局对数据上报、服务记录的硬性要求。</p>
+        </div>
+        <div class="service-item">
+          <h4><span class="si-dot"></span>持证人员匹配</h4>
+          <p>协助机构匹配符合最低审核标准数量的持证医护和养老护理人员，确保人才配置达标，顺利通过资质审核。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODULE 2 ===== -->
+  <div class="module-block">
+    <div class="module-header">
+      <div class="module-num m2">02</div>
+      <div class="module-hd-text">
+        <div class="mod-label">运营增效</div>
+        <h3>持证人才供给与增值业务内训</h3>
+        <div class="mod-subtitle">针对机构运营阶段的人力调度与利润提升需求，提供持续的人才输送与一线团队商业转化能力培训。</div>
+      </div>
+    </div>
+    <div class="module-body">
+      <div class="module-body-list">
+        <div class="service-item">
+          <h4><span class="si-dot"></span>持证护理员定向输送</h4>
+          <p>持续开展人才中介服务，组织人员考取国家认可资质证书，向机构定向输送持证护理员，解决招聘难、留人难问题。</p>
+        </div>
+        <div class="service-item">
+          <h4><span class="si-dot"></span>商业转化企业内训</h4>
+          <p>培训一线护理人员在执行基础服务时间内，发掘老年人的额外消费需求，掌握需求识别与产品推介技巧。</p>
+        </div>
+        <div class="service-item">
+          <h4><span class="si-dot"></span>高利润自费项目推介</h4>
+          <p>引导护理员向客户推广适老化改造、自费康复理疗、营养健康管理等高利润项目，显著提升机构的综合营业收入。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODULE 3 ===== -->
+  <div class="module-block">
+    <div class="module-header">
+      <div class="module-num m3">03</div>
+      <div class="module-hd-text">
+        <div class="mod-label">精准获客</div>
+        <h3>本地精准客源获取与线索分发</h3>
+        <div class="mod-subtitle">组建独立前端营销团队，用社区地推与异业合作精准触达目标客户群体，解决机构自主获客能力不足的核心难题。</div>
+      </div>
+    </div>
+    <div class="module-body">
+      <div class="module-body-list">
+        <div class="service-item">
+          <h4><span class="si-dot"></span>社区地推精准筛选</h4>
+          <p>通过社区地推、老年活动中⼼合作等方式，在本地市场筛选出符合长护险评估标准的老年客户群体，确保线索质量。</p>
+        </div>
+        <div class="service-item">
+          <h4><span class="si-dot"></span>异业合作推广</h4>
+          <p>联动社区药店、中医馆、老年大学等异业渠道，拓展客户来源，降低单一渠道依赖风险，持续稳定获取精准客源。</p>
+        </div>
+        <div class="service-item">
+          <h4><span class="si-dot"></span>按效果付费结算</h4>
+          <p>获取精确客户需求后，按有效线索数量或最终成交单量向长护险机构收取营销服务费，风险可控、效果可量化。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUE SUMMARY ===== -->
+<section class="value">
+  <h2 class="value-h2">启航圈成员：轻资产切入长护险商业链路</h2>
+  <div class="value-grid">
+    <div class="value-card">
+      <div class="value-icon">🏗️</div>
+      <h3>零重资产投入</h3>
+      <p>无需建护理站、无需囤设备库存、无需租赁实体门店，启航圈成员以服务方身份直接切入商业链路。</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🎓</div>
+      <h3>专业对口输出</h3>
+      <p>将社群在银发产业的行业知识、政策理解、人才资源打包为标准化服务，向实体老板交付可量化的商业价值。</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🔄</div>
+      <h3>持续复购模式</h3>
+      <p>人才输送、内训升级、客源持续分发——每一项都是长护险机构日常刚需，服务关系自然延续，收益稳定可预期。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FLOW ===== -->
+<section class="flow">
+  <h2 class="flow-h2">服务体系运转逻辑</h2>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-step-num">1</div>
+      <h4>机构提出需求</h4>
+      <p>准入/人才/客源</p>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">
+      <div class="flow-step-num">2</div>
+      <h4>启航圈组建服务团队</h4>
+      <p>匹配合适成员</p>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">
+      <div class="flow-step-num">3</div>
+      <h4>交付专业服务</h4>
+      <p>三个模块按需对接</p>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">
+      <div class="flow-step-num">4</div>
+      <h4>按效果结算收益</h4>
+      <p>持续复购循环</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <div class="cta-inner">
+    <div class="cta-note">启航圈成员·仅限30人</div>
+    <h2 class="cta-h2">先看懂，再入场</h2>
+    <p class="cta-sub">不需要你有护理站，不需要你建实体。用你的行业认知做交付，用社群资源做撬点。这就是启航圈的机会。</p>
+    <a href="form.html" class="btn-cta">申请加入启航圈 →</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <p>落地生银 — 只讲实战，只看结果。拒绝早安晚安。</p>
+  <p style="margin-top:.4rem"><a href="index.html">返回官网首页</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>申请入群 — 落地生银社群官网</title>
+<meta name="description" content="落地生银社群入群申请。添加客服微信，选择您的角色类型（启航圈/渠道方/标杆方/产品方），填写专属问卷快速审核入群。">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="申请入群 — 落地生银社群官网">
+<meta property="og:description" content="添加客服微信，选择角色类型，填写专属问卷快速审核入群。">
+<meta property="og:image" content="https://0637021564e740d4a0e238d39e75920b.app.codebuddy.work/og-image.png">
+<meta property="og:url" content="https://0637021564e740d4a0e238d39e75920b.app.codebuddy.work/form.html">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:16px}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",-apple-system,sans-serif;
+    background:linear-gradient(180deg,#FEFCF8 0%,#F0FDFA 50%,#FEFCF8 100%);
+    color:#1C1917;line-height:1.7;min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* Header */
+  .header{
+    padding:1.5rem 2rem;
+    display:flex;align-items:center;justify-content:center;
+    border-bottom:1px solid #E7E5E4;
+    background:rgba(254,252,248,0.95);backdrop-filter:blur(10px);
+  }
+  .logo{display:flex;align-items:center;gap:0.75rem}
+  .logo-icon{
+    width:40px;height:40px;border-radius:10px;
+    background:linear-gradient(135deg,#0F766E,#0D9488);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.15rem;font-weight:900;color:#FFF;
+  }
+  .logo-text{font-size:1.25rem;font-weight:800;color:#1C1917}
+  .text-accent{color:#0F766E}
+  .gradient-text{
+    background:linear-gradient(135deg,#0F766E 0%,#0D9488 50%,#14B8A6 100%);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+
+  /* Container */
+  .container{max-width:800px;margin:0 auto;padding:2rem}
+
+  /* Steps */
+  .steps{display:flex;justify-content:center;gap:0;margin-bottom:3rem;position:relative}
+  .step{
+    display:flex;align-items:center;gap:0.5rem;
+    font-size:0.85rem;color:#A8A29E;font-weight:600;
+  }
+  .step-num{
+    width:28px;height:28px;border-radius:50%;
+    background:#E7E5E4;display:flex;align-items:center;justify-content:center;
+    font-size:0.8rem;font-weight:800;color:#A8A29E;
+  }
+  .step.active .step-num{background:#0F766E;color:#FFF}
+  .step.active{color:#0F766E}
+  .step-divider{width:40px;height:1px;background:#E7E5E4;align-self:center}
+
+  /* Title */
+  .page-title{text-align:center;margin-bottom:0.75rem}
+  .page-title h1{font-size:2rem;font-weight:800;color:#1C1917}
+  .page-sub{font-size:1rem;color:#78716C;text-align:center;margin-bottom:2rem}
+
+  /* WeChat card */
+  .wx-card{
+    background:#FFF;border:2px solid #E7E5E4;border-radius:20px;
+    padding:2rem;text-align:center;margin-bottom:2rem;
+    box-shadow:0 4px 20px rgba(0,0,0,0.04);
+  }
+  .wx-card .label{
+    display:inline-block;font-size:0.8rem;font-weight:700;color:#0F766E;
+    padding:0.3rem 0.9rem;border-radius:50px;
+    background:rgba(15,118,110,0.06);margin-bottom:1rem;
+  }
+  .wx-qr-placeholder{
+    width:160px;height:160px;border-radius:16px;
+    margin:0 auto 1.25rem;
+    border:1px solid #E7E5E4;overflow:hidden;
+  }
+  .wx-id{
+    display:inline-flex;align-items:center;gap:0.4rem;
+    font-size:1.15rem;font-weight:700;color:#0F766E;
+    padding:0.6rem 1.5rem;border-radius:10px;
+    background:rgba(15,118,110,0.06);border:1px solid rgba(15,118,110,0.12);
+  }
+  .wx-id .copy-btn{
+    background:none;border:none;color:#0F766E;cursor:pointer;
+    font-size:0.8rem;padding:0.2rem 0.5rem;border-radius:4px;
+    transition:all 0.2s;
+  }
+  .wx-id .copy-btn:hover{background:rgba(15,118,110,0.1)}
+  .wx-tip{font-size:0.9rem;color:#78716C;margin-top:0.75rem}
+
+  /* Divider */
+  .divider{
+    display:flex;align-items:center;gap:1rem;margin:2rem 0;
+    color:#A8A29E;font-size:0.85rem;font-weight:600;
+  }
+  .divider::before,.divider::after{
+    content:'';flex:1;height:1px;background:#E7E5E4;
+  }
+
+  /* Role selection */
+  .role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2rem}
+  .role-card{
+    background:#FFF;border:2px solid #E7E5E4;border-radius:16px;
+    padding:1.75rem;cursor:pointer;transition:all 0.3s;
+    position:relative;overflow:hidden;
+  }
+  .role-card:hover{
+    border-color:rgba(15,118,110,0.4);
+    box-shadow:0 8px 30px rgba(15,118,110,0.1);
+    transform:translateY(-2px);
+  }
+  .role-card.selected{
+    border-color:#0F766E;background:rgba(15,118,110,0.03);
+    box-shadow:0 8px 30px rgba(15,118,110,0.12);
+  }
+  .role-card.selected::after{
+    content:'✓';position:absolute;top:12px;right:16px;
+    width:28px;height:28px;border-radius:50%;
+    background:#0F766E;color:#FFF;font-size:0.85rem;font-weight:900;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .role-card .role-icon{font-size:2rem;margin-bottom:0.5rem}
+  .role-card .role-name{font-size:1.1rem;font-weight:800;color:#1C1917;margin-bottom:0.25rem}
+  .role-card .role-sub{font-size:0.8rem;color:#78716C;margin-bottom:0.5rem}
+  .role-card .role-price{font-size:1rem;font-weight:700;color:#0F766E}
+  .role-card .role-desc{font-size:0.8rem;color:#78716C;margin-top:0.4rem;line-height:1.5}
+
+  /* CTA */
+  .cta-section{text-align:center;margin-top:1rem}
+  .btn{
+    display:inline-flex;align-items:center;gap:0.5rem;
+    padding:1rem 2.5rem;border-radius:12px;
+    font-size:1.1rem;font-weight:700;border:none;cursor:pointer;
+    transition:all 0.3s;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,#0F766E,#0D9488);
+    color:#FFF;box-shadow:0 4px 20px rgba(15,118,110,0.25);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(15,118,110,0.4)}
+  .btn-disabled{
+    background:#E7E5E4;color:#A8A29E;cursor:not-allowed;
+    box-shadow:none;
+  }
+  .btn-disabled:hover{transform:none;box-shadow:none}
+
+  .cta-tip{font-size:0.85rem;color:#78716C;margin-top:1rem}
+  .cta-tip .link{color:#0F766E;font-weight:600;text-decoration:underline;cursor:pointer}
+
+  /* Back link */
+  .back-link{text-align:center;margin-top:2rem;font-size:0.9rem;color:#A8A29E}
+  .back-link a{color:#78716C;transition:color 0.2s}
+  .back-link a:hover{color:#0F766E}
+
+  /* Mobile */
+  @media (max-width:768px){
+    .steps{gap:0;font-size:0.75rem}
+    .step{gap:0.35rem}
+    .step-num{width:24px;height:24px;font-size:0.7rem}
+    .step-divider{width:20px}
+    .container{padding:1.25rem}
+    .role-grid{grid-template-columns:1fr}
+    .page-title h1{font-size:1.5rem}
+    .page-sub{font-size:0.9rem}
+    .wx-card{padding:1.5rem}
+    .wx-qr-placeholder{width:130px;height:130px}
+    .wx-id{font-size:1rem;padding:0.5rem 1rem;flex-wrap:wrap;justify-content:center}
+  }
+  @media (max-width:480px){
+    .header{padding:1rem}
+    .container{padding:1rem}
+    .steps{padding-top:1.5rem!important}
+    .page-title h1{font-size:1.3rem}
+    .role-card{padding:1.25rem}
+    .role-card .role-name{font-size:1rem}
+    .btn{width:100%;justify-content:center;font-size:1rem;padding:0.9rem 1.5rem}
+    .cta-section{margin-top:0.5rem}
+    .back-link{margin-top:1.5rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">
+    <div class="logo-icon">银</div>
+    <span class="logo-text">落地<span class="text-accent">生银</span></span>
+  </a>
+</header>
+
+<div class="container">
+
+  <!-- Steps -->
+  <div class="steps" style="padding-top:2rem">
+    <div class="step active">
+      <div class="step-num">1</div> 添加微信
+    </div>
+    <div class="step-divider"></div>
+    <div class="step active">
+      <div class="step-num">2</div> 选择角色
+    </div>
+    <div class="step-divider"></div>
+    <div class="step">
+      <div class="step-num">3</div> 填写信息
+    </div>
+  </div>
+
+  <!-- Title -->
+  <div class="page-title">
+    <h1>申请加入<span class="gradient-text"> 落地生银</span></h1>
+  </div>
+  <p class="page-sub">添加客服微信，选择你的角色，完成入群申请</p>
+
+  <!-- WeChat Card -->
+  <div class="wx-card">
+    <div class="label">📱 第一步：添加客服微信</div>
+    <div class="wx-qr-placeholder">
+      <img src="wx-qr.png" alt="落地生银客服微信二维码" style="width:100%;height:100%;object-fit:cover;border-radius:16px;">
+    </div>
+    <div style="margin-bottom:0.5rem;font-size:0.85rem;color:#A8A29E;">扫码或搜索添加</div>
+    <div class="wx-id" id="wxId">
+      <span>💬</span> 微信号：<strong id="wxText">请替换为你的微信号</strong>
+      <button class="copy-btn" onclick="copyWx()" title="复制微信号">📋 复制</button>
+    </div>
+    <p class="wx-tip">添加时请备注「落地生银 + 你的角色类型」，客服会尽快通过</p>
+  </div>
+
+  <!-- Divider -->
+  <div class="divider">第二步：确认你的角色</div>
+
+  <!-- Role Selection -->
+  <div class="role-grid" id="roleGrid">
+    <div class="role-card" data-role="启航圈成员" data-price="¥499" onclick="selectRole(this)">
+      <div class="role-icon">🚀</div>
+      <div class="role-name">启航圈成员</div>
+      <div class="role-sub">转行者 / 准创业者</div>
+      <div class="role-price">¥499/年 · 首发锁价</div>
+      <div class="role-desc">有资金或时间，想学基础、找靠谱项目入局银发赛道</div>
+    </div>
+    <div class="role-card" data-role="渠道方" data-price="¥199" onclick="selectRole(this)">
+      <div class="role-icon">🏪</div>
+      <div class="role-name">领航圈 · 渠道方</div>
+      <div class="role-sub">线下终端门店经营者</div>
+      <div class="role-price">¥199/年 · 审核后锁价</div>
+      <div class="role-desc">已有实体阵地，想对接收割好产品、拿源头底价</div>
+    </div>
+    <div class="role-card" data-role="标杆渠道方" data-price="¥9,800" onclick="selectRole(this)">
+      <div class="role-icon">⭐</div>
+      <div class="role-name">领航圈 · 标杆渠道方</div>
+      <div class="role-sub">盈利单店模型输出者</div>
+      <div class="role-price">¥9,800/年 + 5%流水</div>
+      <div class="role-desc">盈利已验证，想招募合伙人、低成本对外扩张</div>
+    </div>
+    <div class="role-card" data-role="产品方" data-price="¥19,800" onclick="selectRole(this)">
+      <div class="role-icon">🏭</div>
+      <div class="role-name">领航圈 · 产品方/项目方</div>
+      <div class="role-sub">供应链企业 / 金主</div>
+      <div class="role-price">¥19,800/年 + 5%流水</div>
+      <div class="role-desc">有优质适老产品/项目，急需低成本铺渠道</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <button class="btn btn-disabled" id="submitBtn" disabled onclick="goToSurvey()">
+      请先选择角色类型 →
+    </button>
+    <p class="cta-tip">
+      选择角色后将跳转至 <span class="link">腾讯问卷</span> 填写详细信息
+    </p>
+  </div>
+
+  <div class="back-link">
+    <a href="index.html">← 返回官网首页</a>
+  </div>
+
+</div>
+
+<script>
+  const SURVEY_URLS = {
+    '启航圈成员': 'https://wj.qq.com/s2/27082968/c3d0/',
+    '渠道方': 'https://wj.qq.com/s2/27082906/aba5/',
+    '标杆渠道方': 'https://wj.qq.com/s2/27082905/6c35/',
+    '产品方': 'https://wj.qq.com/s2/27082909/0a12/'
+  };
+  const WX_ID = 'luodishengyin';
+
+  let selectedRole = null;
+
+  function selectRole(card) {
+    // Remove selected from all
+    document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
+    // Add selected
+    card.classList.add('selected');
+    selectedRole = card.dataset.role;
+
+    // Update button
+    const btn = document.getElementById('submitBtn');
+    btn.className = 'btn btn-primary';
+    btn.disabled = false;
+    btn.textContent = '填写入群信息 →';
+  }
+
+  function goToSurvey() {
+    if (!selectedRole) return;
+    const url = SURVEY_URLS[selectedRole];
+    if (url) window.open(url, '_blank');
+  }
+
+  function copyWx() {
+    const text = WX_ID;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => {
+        showCopied();
+      });
+    } else {
+      // Fallback
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showCopied();
+    }
+  }
+
+  function showCopied() {
+    const btn = document.querySelector('.copy-btn');
+    const orig = btn.textContent;
+    btn.textContent = '✅ 已复制';
+    setTimeout(() => { btn.textContent = orig; }, 2000);
+  }
+
+  // Check if role was pre-selected via URL param
+  const params = new URLSearchParams(window.location.search);
+  const preRole = params.get('role');
+  if (preRole) {
+    const cards = document.querySelectorAll('.role-card');
+    cards.forEach(c => {
+      if (c.dataset.role.includes(preRole)) {
+        selectRole(c);
+        c.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }
+
+  // Update wx text
+  document.getElementById('wxText').textContent = WX_ID;
+</script>
+
+</body>
+</html>
