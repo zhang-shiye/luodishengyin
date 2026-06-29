@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /og-image.png
+Sitemap: https://zhang-shiye.github.io/luodishengyin/sitemap.xml
